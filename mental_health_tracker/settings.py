@@ -25,7 +25,7 @@ SECRET_KEY = 'django-insecure-9f0rj#cq-3z&nyh=)gcp-zh^5@nv(kbr8-9s$9@f_^na$fqxe8
 
 # SECURITY WARNING: don't run with debug turned on in production!
 PRODUCTION = os.getenv("PRODUCTION", False)
-DEBUG = not PRODUCTION
+DEBUG = True
 
 ALLOWED_HOSTS = ["localhost", "127.0.0.1", "karolina-jocelyn-mentalhealthtracker.pbp.cs.ui.ac.id"]
 
@@ -119,13 +119,18 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/5.1/howto/static-files/
 
+# STATIC_URL = '/static/'
+# if DEBUG:
+#     STATICFILES_DIRS = [
+#         BASE_DIR / 'static' # merujuk ke /static root project pada mode development
+#     ]
+# else:
+#     STATIC_ROOT = BASE_DIR / 'static' # merujuk ke /static root project pada mode production
+# Static files (CSS, JavaScript, Images)
+# Dokumentasi: https://docs.djangoproject.com/en/5.1/howto/static-files/
 STATIC_URL = '/static/'
-if DEBUG:
-    STATICFILES_DIRS = [
-        BASE_DIR / 'static' # merujuk ke /static root project pada mode development
-    ]
-else:
-    STATIC_ROOT = BASE_DIR / 'static' # merujuk ke /static root project pada mode production
+STATIC_ROOT = BASE_DIR / 'static'
+
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/5.1/ref/settings/#default-auto-field
